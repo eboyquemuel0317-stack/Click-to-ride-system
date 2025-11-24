@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+<!-- Block title for the page -->
+{% block title %}Admin Login{% endblock %}
+
+<!-- Main content block -->
+{% block content %}
+<div class="login-container">
+    <!-- Outer box containing the whole login panel -->
+    <div class="login-box">
+        <!-- Header section with background logo -->
+        <div class="login-header"></div>
+
+        <!-- Title and description section -->
+        <div class="login-text">
+            <h1 class="login-title">Admin Login</h1>
+            <p class="login-subtext">Sign in to manage bookings and users</p>
+        </div>
+
+        <!-- Flash messages section for displaying alerts -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <!-- Individual flash message -->
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Login form -->
+        <form method="POST" class="login-form">
+            <!-- Username input group -->
+            <div class="input-group-vertical">
+                <div class="input-label">
+                    <!-- Username icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="input-icon-top" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5.121 17.804A9 9 0 1118.879 6.196M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span>Username</span>
+                </div>
+                <!-- Username input field -->
+                <input id="username" type="text" name="username" placeholder="Enter Username" required autocomplete="username">
+            </div>
+
+            <!-- Password input group -->
+            <div class="input-group-vertical">
+                <div class="input-label">
+                    <!-- Password icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="input-icon-top" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 11c.943 0 1.816.417 2.414 1.086A3.001 3.001 0 0112 17a3 3 0 010-6zM7 10V8a5 5 0 0110 0v2" />
+                        <rect width="14" height="10" x="5" y="10" rx="2" ry="2" />
+                    </svg>
+                    <span>Password</span>
+                </div>
+                <!-- Password input field -->
+                <input id="password" type="password" name="password" placeholder="Enter Password" required autocomplete="current-password">
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="login-btn">
+                <!-- Button icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 9v6m4-6v6m-9 4h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Login
+            </button>
+
+            <!-- Back Button -->
+            <a href="{{ url_for('main.new_booking') }}" class="back-login-btn">
+                <!-- Back icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to Booking
+            </a>
+        </form>
+
+        <!-- Bottom note visible under the footer -->
+        <div class="login-bottom-note">
+            <p><strong>Note: </strong>This admin area is for authorized personnel only. Contact the site administrator for access.</p>
+        </div>
+        <!-- Footer -->
+        <div class="login-footer">
+            <p>© 2025 Click to Ride | Developed by NwSSU BSIT 2B</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- 
+    Template: login.html
+    Purpose: Admin login page for Click to Ride system.
+    Features include:
+    - Secure login form for authorized personnel
+    - Username and password input fields with icons
+    - Flash messages for login alerts
+    - Login button with SVG icon
+    - Back to booking page link
+    - Footer with development and copyright info
+    Note: This file extends base.html and uses Jinja2 templating for form handling and flash messages.
+-->

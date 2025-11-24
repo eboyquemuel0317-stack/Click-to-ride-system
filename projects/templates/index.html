@@ -1,0 +1,419 @@
+<!-- Template: index.html
+    Purpose: Reservation form for Calmoda Transportation booking app.
+    Note: This file extends base.html and uses Jinja2 templating for routes.
+-->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <!-- Header: page badges, title, subtitle & short description -->
+        <header class="header">
+            <div class="header-badges">
+                <span class="badge badge-left">CALBAYOG CITY</span>
+                <span class="badge badge-right">CALMODA TRANSPORTATION</span>
+            </div>
+            <h1 class="header-title">CLICK TO RIDE</h1>
+            <p class="header-subtitle">Fast & Safe Calmoda Booking</p>
+            <p class="header-description">Your trusted transportation partner in Calbayog</p>
+        </header>
+
+
+        <!-- Main Content: form and informational sections -->
+        <main class="main-content">
+            <!-- Introduction Section -->
+            <section class="introduction-section">
+                <h3>Introduction</h3>
+                <p>Welcome to Click to Ride — your convenient Mini Jeep ticket and seat reservation system. Easily check available trips, reserve your preferred seat, and secure your ride in just a few clicks. Fast, reliable, and designed to make your daily travel smoother.</p>
+
+                <div class="introduction-goal">
+                    <div class="goal-mission">
+                        <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="40" stroke="#2c6bed" stroke-width="6" fill="none"/>
+                            <circle cx="50" cy="50" r="25" stroke="#2c6bed" stroke-width="6" fill="none"/>
+                            <circle cx="50" cy="50" r="10" fill="#2c6bed"/>
+                        </svg>
+                        <h2>MISSION</h2>
+                        <p>Our mission is to provide passengers with a fast, convenient, and reliable way to reserve Mini Jeep seats anytime, anywhere. We aim to improve daily transportation by reducing waiting time, ensuring seat availability, and offering a smooth and user-friendly digital booking experience.</p>
+                    </div>
+                    <div class="goal-vision">
+                        <svg width="120" height="70" viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="60" cy="35" rx="50" ry="25" stroke="#10b981" stroke-width="6" fill="none"/>
+                            <circle cx="60" cy="35" r="12" fill="#10b981"/>
+                        </svg>
+                        <h2>VISION</h2>
+                        <p>Our vision is to become the leading digital platform for modern, efficient, and organized Mini Jeep transportation—connecting communities through technology, improving travel safety, and delivering a seamless ride for every passenger.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Destinatio Introductions-->
+            <h3 class="destination-title">DESTINATIONS</h3>
+            <section class="route-destination-container">
+                <div class="scroll-track">
+                    <div class="destination-card">
+                        <img src="{{ url_for('static', filename='images/calmoda-vehicle2.png') }}" alt="Bus">
+                        <h3>Calbayog → Peña</h3>
+                        <p>Comfortable ride from <span>Calbayog</span> to <span>Peña</span> for only <span>₱55</span>. Quick, reliable, and hassle-free!</p>
+                    </div>
+
+                    <div class="destination-card">
+                        <img src="{{ url_for('static', filename='images/calmoda-vehicle.png') }}" alt="Bus">
+                        <h3>Calbayog → Tarabucan</h3>
+                        <p>Travel from <span>Calbayog</span> to <span>Tarabucan</span> in comfort. Only <span>₱60</span> per seat—timely departures every day!</p>
+                    </div>
+
+                    <div class="destination-card">
+                        <img src="{{ url_for('static', filename='images/calmoda-vehicle3.png') }}" alt="Bus">
+                        <h3>Peña/Tarabucan → Calbayog</h3>
+                        <p>Travel smart from <span>Peña/Tarabucan</span> to <span>Calbayog</span>. Only <span>₱60</span> per ride—relax, enjoy, arrive on time!</p>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- Announcement banner -->
+            <section class="announcement-bar">
+                <p id="announcement-text">🚐 Travel made simple. Secure your seat instantly and enjoy faster departures with Click to Ride!</p>
+            </section>
+
+            <!-- Informative Section -->
+            <section class="info-section-ctr">
+                <div class="info-content-ctr">
+                    <h3>Reserve Your Seat Anytime, Anywhere</h3>
+                    <p><strong>Get started!</strong> today with the Click To Ride web app. Book your seat at affordable price with highest priority lane.</p>
+
+                    <div class="info-link-ctr">
+                        <button class="reserve-btn-ctr">Book Your Set Now → </button>
+
+                        <a href="https://www.facebook.com/calmoda.transcoop/"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="#"><i class="fas fa-envelope-open-text"></i> Gmail</a>
+                        <a href="#"><i class="fas fa-life-ring"></i> Help Center</a>
+                        <a href="#"><i class="fas fa-phone-alt"></i> Contact Us</a>
+                    </div>
+                </div>
+            </section>  
+
+
+            <!-- Reservation Form: posts to main.reserve route -->
+            <form method="POST" action="{{ url_for('main.reserve') }}" id="reservationForm">
+                <!-- Route Selection Section: displays available routes from 'routes' -->
+                <section class="route-section popup-hidden" id="routePopup">
+                    <div class="section-header">
+                        <!-- Icon and section title -->
+                        <svg class="icon icon-location" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <h2 class="section-title">Select Your Route</h2>
+                    </div>
+
+                    <div class="route-list">
+                        {# Loop through routes provided by the server and render a selectable card for each #}
+                        {% for route in routes %}
+                        <!-- Route Card: radio input + display info (from → to, duration, price) -->
+                        <label class="route-card route-card-{{ route.color }}">
+                            <input type="radio" name="route_id" value="{{ route.id }}" class="route-input" required>
+                            <div class="route-card-inner">
+                                <div class="route-icon-wrapper">
+                                    <svg class="route-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="route-info">
+                                    <div class="route-name">{{ route.from }} <span class="route-arrow">→</span> {{ route.to }}</div>
+                                    <div class="route-duration">{{ route.duration }}</div>
+                                </div>
+                                <div class="route-price-wrapper">
+                                    <div class="route-price">{{ route.price }}</div>
+                                    <div class="route-price-label">per person</div>
+                                </div>
+                                <div class="route-check">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <!-- Booking Details Section: shown when a route is selected -->
+                <section class="booking-section" id="bookingDetails">
+                    <h2 class="booking-title">Booking Details</h2>
+
+                    <!-- Full Name Input -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <svg class="form-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                            Full Name
+                        </label>
+                        <input type="text" name="name" class="form-input" placeholder="full name" required>
+                    </div>
+
+                    <!-- Contact Number Input -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <svg class="form-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.684l1.518 4.546a1 1 0 01-.272 1.045l-2.12 2.12a16.001 16.001 0 006.586 6.586l2.12-2.12a1 1 0 011.045-.272l4.546 1.518a1 1 0 01.684.95V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            Contact Number
+                        </label>
+                        <input type="tel" name="contact" class="form-input"
+                                placeholder="0935XXXXXXX"
+                                pattern="[0-9]{11}" title="Enter a valid 11-digit number"
+                                maxlength="11" required>
+                    </div>
+
+                    <!-- Email (Gmail only) Input -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <svg class="form-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            Email Address
+                        </label>
+                        <input type="email" name="email" class="form-input"
+                                placeholder="user@gmail.com"
+                                pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+                                title="Please enter a valid Gmail address (e.g. example@gmail.com)"
+                                required>
+                    </div>
+
+                    <!-- Date and Time Inputs -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <svg class="form-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                Travel Date
+                            </label>
+                            <!-- type switches to date on focus for better UX; min set via JS -->
+                            <input type="text" name="date" class="form-input form-input-date" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"></label>
+                                <svg class="form-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Departure Time
+                            </label>
+                            <input type="time" name="time" class="form-input form-input-time" required>
+                        </div>
+                    </div>
+
+                    <!-- Number of Passengers: custom counter with hidden input -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <svg class="form-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                            Numbers of Passengers
+                        </label>
+                        <div class="passenger-counter">
+                            <!-- decrease button -->
+                            <button type="button" class="passenger-btn" id="decreaseBtn">−</button>
+                            <div class="passenger-display">
+                                <!-- visible count -->
+                                <div class="passenger-count" id="passengerCount">1</div>
+                                <div class="passenger-label">passenger</div>
+                            </div>
+                            <!-- increase button -->
+                            <button type="button" class="passenger-btn" id="increaseBtn">+</button>
+                        </div>
+                        <!-- hidden input to submit passenger count -->
+                        <input type="hidden" name="passengers" id="passengersInput" value="1">
+                    </div>
+
+                    <!-- Submit Button: disabled until required fields are filled -->
+                    <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                        Please fill in all details
+                    </button>
+                </section>
+            </form>
+
+            <!-- Student Info Section: informational highlights -->
+            <section class="student-info">
+                <h3 class="student-info-title">Special Student Rates Available</h3>
+                <p class="student-info-text">Show your student ID upon boarding to get discounted rates</p>
+                <div class="features">
+                    <div class="feature">
+                        <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Safe & Secure
+                    </div>
+                    <div class="feature">
+                        <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Licensed Drivers
+                    </div>
+                    <div class="feature">
+                        <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        24/7 Support
+                    </div>
+                </div>
+            </section>
+
+            <section class="help-note">
+                <p>💡 Need help? Visit our <a href="#">Help Center</a> or contact a Click to Ride representative at the terminal.</p>
+            </section>
+
+        </main>
+
+        <!-- Footer: booking instructions for the user -->
+        <footer class="bookings-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p>© {{ current_year }} CTR Booking System<br>Developed by <strong>NwSSU BSIT 2B</strong></p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-user-shield"></i> Privacy Policy</a>
+                    <a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                    <a href="{{ url_for('main.admin_bookings') }}" class="admin-link">
+                        <i class="fas fa-shield-alt"></i> Admin Panel
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.querySelector(".reserve-btn-ctr").addEventListener("click", function() {
+    const routePopup = document.getElementById("routePopup");
+
+    routePopup.classList.remove("popup-hidden");
+    routePopup.classList.add("popup-show");
+
+    // Scroll smoothly to the popup
+    routePopup.scrollIntoView({ behavior: "smooth" });
+});
+</script>
+
+<!-- JavaScripts that handles the animated announcement function-->
+<script>
+const announcements = [
+    "🚐 Travel made simple. Secure your seat instantly and enjoy faster departures with Click to Ride!",
+    "🎓 Students and professionals — skip the wait, ride smarter today!",
+    "🕒 On time, every time. Book early and enjoy a smoother commute.",
+    "🌤 Comfort and convenience — your journey starts with Click to Ride!"
+];
+
+let index = 0;
+const announcementEl = document.getElementById("announcement-text");
+
+function updateAnnouncement() {
+    announcementEl.style.opacity = 0;
+    setTimeout(() => {
+        index = (index + 1) % announcements.length;
+        announcementEl.textContent = announcements[index];
+        announcementEl.style.animation = "none";
+        announcementEl.offsetHeight; // reset animation
+        announcementEl.style.animation = "fadeInUp 0.6s ease";
+        announcementEl.style.opacity = 1;
+    }, 400);
+}
+
+// change text every 6 seconds
+setInterval(updateAnnouncement, 6000);
+</script>
+
+<script>
+    
+    // Get references to important DOM elements
+    const form = document.getElementById('reservationForm');              // reservation form element
+    const bookingDetails = document.getElementById('bookingDetails');    // booking details section
+    const submitBtn = document.getElementById('submitBtn');              // submit button
+    const routeInputs = document.querySelectorAll('.route-input');       // all route radio inputs
+    let passengers = 1;                                                  // passenger counter state
+
+    // Handle route selection:
+    // When any route radio changes to checked, show the booking details section and validate form.
+    routeInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            if (this.checked) {
+                bookingDetails.style.display = 'block'; // reveal booking details UI
+                checkFormValidity(); // run validation to possibly enable submit
+            }
+        });
+    });
+
+    // Passenger counter: decrease button
+    document.getElementById('decreaseBtn').addEventListener('click', function() {
+        if (passengers > 1) {
+            passengers--;                // decrement state
+            updatePassengerDisplay();    // update visible count and hidden input
+        }
+    });
+
+    // Passenger counter: increase button
+    document.getElementById('increaseBtn').addEventListener('click', function() {
+        if (passengers < 10) {
+            passengers++;                // increment state (max 10)
+            updatePassengerDisplay();    // update visible count and hidden input
+        }
+    });
+
+    // Update passenger display and hidden input value
+    function updatePassengerDisplay() {
+        document.getElementById('passengerCount').textContent = passengers; // visible number
+        document.getElementById('passengersInput').value = passengers;     // form value
+        // update label singular/plural
+        document.querySelector('.passenger-label').textContent = 
+            passengers === 1 ? 'passenger' : 'passengers';
+    }
+
+    // Re-validate form when any input value changes
+    form.addEventListener('input', checkFormValidity);
+
+    // Validate required fields and update submit button state and text
+    function checkFormValidity() {
+        const routeSelected = document.querySelector('.route-input:checked'); // is a route selected?
+        const name = form.querySelector('input[name="name"]').value.trim();   // get name value
+        const date = form.querySelector('input[name="date"]').value;         // get date value
+        const time = form.querySelector('input[name="time"]').value;         // get time value
+
+        // Enable submit if route + name + date + time are present
+        if (routeSelected && name && date && time) {
+            submitBtn.disabled = false;                     // enable button
+            submitBtn.classList.add('submit-btn-active');  // add active style
+            submitBtn.textContent = 'Confirm Reservation'; // change label
+        } else {
+            submitBtn.disabled = true;                      // disable button
+            submitBtn.classList.remove('submit-btn-active'); // remove active style
+            submitBtn.textContent = 'Please fill in all details'; // default label
+        }
+    }
+
+    // Set minimum selectable date to today (prevents past-date booking)
+    const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+    form.querySelector('input[name="date"]').setAttribute('min', today);
+</script>
+{% endblock %}
+
+<!-- 
+    Template: index.html
+    Purpose: Reservation form for Calmoda Transportation booking app.
+    Features include:
+    - User selects route from predefined options
+    - Enter personal details (name, contact, email)
+    - Choose travel date and departure time
+    - Select number of passengers
+    - Generate a digital ticket upon submission
+    - Real-time form validation and dynamic submit button
+    Note: This file extends base.html and uses Jinja2 templating for routes.
+-->

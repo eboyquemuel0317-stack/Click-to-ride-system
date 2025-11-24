@@ -1,0 +1,2952 @@
+/* ============= Global defualt style ============= */
+/* Global: reset margins/padding and use border-box sizing for predictable layouts */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f2f5 0%, #d9dee3 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #1f2937;
+}
+
+/* ============= Container ============= */
+/* Layout container to center page content and limit max-width */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ============= Header ============= */
+/* Page header styling: gradient background, rounded corners, title and badges */
+/* Smooth header entry animation */
+@keyframes headerFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-25px);
+        filter: blur(6px);
+    }
+    60% {
+        opacity: 0.6;
+        transform: translateY(5px);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.header {
+    background: linear-gradient(135deg, #0077ff 0%, #00b8ff 100%);
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0, 162, 255, 0.4),
+            0 6px 12px rgba(0, 220, 255, 0.25);
+
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+
+    /* Smooth hover transitions */
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.3, 1),
+                box-shadow 0.45s cubic-bezier(0.25, 1, 0.3, 1),
+                filter 0.45s ease,
+                background-position 1s ease;
+
+    /* Smooth entry animation */
+    animation: headerFadeIn 0.8s cubic-bezier(0.25, 1, 0.3, 1) both;
+}
+
+/* Hover animation: gentle lift and color motion */
+.header:hover {
+    transform: translateY(-6px);
+    background-position: 100% 50%;
+    filter: brightness(1.08);
+
+    /* 🩵 Gradient-matched, soft glowing hover shadow */
+    box-shadow: 0 16px 40px rgba(79, 172, 254, 0.45),
+                0 10px 25px rgba(0, 242, 254, 0.3);
+}
+
+/* Header badges row: left/right badges and spacing */
+.header-badges {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header title/subtitle/description */
+.header-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.header-subtitle {
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+.header-description {
+    font-size: 14px;
+    opacity: 0.95;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ============= Main Content ============= */
+/* Main content wrapper with soft background and rounded corners */
+@keyframes fadeUpSmooth {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(6px);
+    }
+    60% {
+        opacity: 0.8;
+        transform: translateY(-6px);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+/* Main content style */
+.main-content {
+    background: linear-gradient(145deg, #f9f9fb, #f1f3f6); /* soft gradient for depth */
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* gentle shadow for lift */
+    animation: fadeUpSmooth 0.9s cubic-bezier(0.25, 1, 0.3, 1) both;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Optional hover effect for subtle elegance */
+.main-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* ✨ Smooth fade-up animation */
+@keyframes fadeUpSmooth {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Introduction Section style */
+.introduction-section{
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: start;
+    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.25);
+    margin-bottom: 20px;
+}
+.introduction-section h3 {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 20px;           /* Make it larger */
+    font-weight: 700;           /* Bold */
+    color: #ffffff;             /* White text */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for pop */
+    padding: 10px 20px;
+    display: inline-block;      /* Only wraps the text */
+    border-radius: 20px;
+    background: rgba(0,0,0,0.1); /* Optional subtle highlight */
+}
+
+/* Mission & Vision Container */
+.introduction-goal {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Card Style */
+.goal-mission, 
+.goal-vision {
+    background: linear-gradient(135deg, #ffffff 0%, #dff2ff 100%);  /* Soft gradient */
+    color: #333;                              
+    padding: 25px;
+    border-radius: 15px;
+    width: calc(50% - 20px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+    text-align: center;
+    border: 2px solid #4facfe;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect (stronger) */
+.goal-mission:hover, 
+.goal-vision:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* SVG ICON SIZE (smaller & centered) */
+.goal-mission svg,
+.goal-vision svg {
+    width: 60px !important;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+/* Headers */
+.goal-mission h2,
+.goal-vision h2 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #007bff;  /* Blue accent */
+    letter-spacing: 1px;
+}
+
+/* Text */
+.goal-mission p,
+.goal-vision p {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-top: 10px;
+    color: #444;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .goal-mission, 
+    .goal-vision {
+        width: 100%;
+    }
+}
+
+/* Wrapper Section */
+.destination-title{
+
+    margin-top: 20px;
+    font-size: 20px;           /* Make it larger */
+    font-weight: 700;           /* Bold */
+    color: #ffffff;             /* White text */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for pop */
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+.route-destination-container {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Scrollable track */
+.scroll-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 25px;
+    width: 100%;
+    overflow-x: auto;   /* horizontal scroll */
+    overflow-y: hidden;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar (optional) */
+.scroll-track::-webkit-scrollbar {
+    height: 6px;
+}
+.scroll-track::-webkit-scrollbar-thumb {
+    background: #4facfe;
+    border-radius: 10px;
+}
+
+/* Destination Card */
+.destination-card {
+    width: 220px;
+    background: linear-gradient(135deg, #ffffff 0%, #dff2ff 100%);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    border: 2px solid #4facfe;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover */
+.destination-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* Image */
+.destination-card img {
+    width: 100%;
+    height: auto;      /* <— natural height to avoid blur */
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+}
+
+
+/* Title */
+.destination-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #007bff;
+}
+
+/* Description - Catchy Style */
+.destination-card p {
+    font-size: 0.8rem;
+    color: #333;             /* darker text for readability */
+    line-height: 1.5;
+    font-weight: 500;        /* slightly bolder for emphasis */
+    transition: color 0.3s ease;
+}
+
+/* Highlight key info inside paragraph */
+.destination-card p span {
+    font-weight: 700;
+    color: #007bff;          /* accent color for fare, destinations */
+}
+
+/* Optional: add a subtle icon before description */
+.destination-card p::before {
+    content: "🚌 ";           /* bus icon, can change per route */
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Hover effect on paragraph */
+.destination-card:hover p {
+    color: #0047b3;          /* dark blue on hover for emphasis */
+}
+
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    .destination-card {
+        width: 280px;
+    }
+}
+
+/* Desktop layout */
+@media (min-width: 769px) {
+    .scroll-track {
+        overflow: visible;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .destination-card {
+        width: 200px;
+    }
+}
+
+
+/* Announcement Section style with infinite text */
+.announcement-bar {
+    display: flex;
+    justify-content: center;     /* centers horizontally */
+    align-items: center;         /* centers vertically */
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.25);
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    overflow: hidden;
+    min-height: 80px;            /* fixed height */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.announcement-bar p {
+    margin: 0;
+    line-height: 1.4;            /* keeps text balanced */
+    animation: fadeInUp 0.6s ease;
+    transition: opacity 0.4s ease;
+    text-align: center;
+}
+/* help note style */
+.help-note {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.8rem;
+    margin-top: 30px;
+}
+
+.help-note a {
+    color: #0ea5e9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.help-note a:hover {
+    text-decoration: underline;
+}
+
+
+/* Unique Informative Section Style */
+.info-section-ctr {
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("/static/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #ffffff;
+    padding: 60px 30px;
+    border-radius: 14px;
+    text-align: start;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    margin-bottom: 20px;
+}
+
+/* Title */
+.info-section-ctr h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Paragraph */
+.info-section-ctr p {
+    background: rgba(255,255,255,0.1);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 620px;
+    border-radius: 18px;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.45);
+    margin-bottom: 20px;
+}
+
+/* Highlight word */
+.info-section-ctr p strong {
+    color: #4bb0eb;
+}
+
+/* Reserve Button */
+.reserve-btn-ctr {
+    background: #4bb0eb;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 3px 10px rgba(75, 176, 235, 0.4);
+    margin-bottom: 12px;
+}
+
+.reserve-btn-ctr:hover {
+    background: #1d9bd8;
+    transform: translateY(-2px);
+}
+
+/* Link container */
+.info-link-ctr {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Links */
+.info-link-ctr a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.1);
+    padding: 12px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    backdrop-filter: blur(2px);
+}
+
+/* Icons */
+.info-link-ctr a i {
+    font-size: 18px;
+    color: #4bb0eb;
+}
+
+/* Hover effect for links */
+.info-link-ctr a:hover {
+    background: rgba(75,176,235,0.25);
+    transform: translateX(5px);
+}
+
+/* ============= Section Header ============= */
+/* Small section headings used throughout the page (icon + title) */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.icon-location {
+    width: 24px;
+    height: 24px;
+    color: #8b5cf6;
+    transition: all 0.3s ease;
+}
+
+.icon-location:hover {
+    color: #6d28d9;
+    transform: scale(1.2) rotate(15deg);
+    filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.4));
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    letter-spacing: 0.3px;
+}
+
+/* ============= Route Section =============*/
+/* Route selection cards: different color variants and interactive states */
+.popup-hidden {
+    display: none;
+    opacity: 0;
+}
+
+.popup-show {
+    display: block;
+    animation: popupFade 0.4s ease forwards;
+}
+
+/* Optional smooth popup animation */
+@keyframes popupFade {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.route-section {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.route-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.route-card {
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.route-input {
+    display: none;
+}
+
+.route-card-inner {
+    display: flex;
+    align-items: center;
+    padding: 18px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.route-card-blue .route-card-inner {
+    background: linear-gradient(135deg, #a8d8ff 0%, #c5e7ff 100%);
+    transition: all 0.3s ease;
+}
+
+.route-card-blue .route-card-inner:hover {
+    background: linear-gradient(135deg, #84c9ff 0%, #a8dbff 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(168, 216, 255, 0.4);
+}
+
+.route-card-pink .route-card-inner {
+    background: linear-gradient(135deg, #ffc8e8 0%, #ffe0f0 100%);
+    transition: all 0.3s ease;
+}
+
+.route-card-pink .route-card-inner:hover {
+    background: linear-gradient(135deg, #ffb0dc 0%, #ffd1e8 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255, 200, 232, 0.4);
+}
+
+.route-card-orange .route-card-inner {
+    background: linear-gradient(135deg, #ffd4a8 0%, #ffe8c8 100%);
+    transition: all 0.3s ease;
+}
+
+.route-card-orange .route-card-inner:hover {
+    background: linear-gradient(135deg, #ffc68c 0%, #ffdeb0 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255, 212, 168, 0.4);
+}
+
+.route-card-green .route-card-inner {
+    background: linear-gradient(135deg, #b8f0b8 0%, #d0f5d0 100%);
+    transition: all 0.3s ease;
+}
+
+.route-card-green .route-card-inner:hover {
+    background: linear-gradient(135deg, #9ee89e 0%, #bef0be 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(184, 240, 184, 0.4);
+}
+
+.route-input:checked + .route-card-inner {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+    transform: scale(1.02);
+}
+
+.route-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.route-card-blue .route-icon-wrapper {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.route-card-pink .route-icon-wrapper {
+    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.route-card-orange .route-icon-wrapper {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.route-card-green .route-icon-wrapper {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.route-icon {
+    width: 26px;
+    height: 26px;
+    color: white;
+}
+
+.route-info {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.route-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.route-arrow {
+    color: #6b7280;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.route-duration {
+    font-size: 13px;
+    color: #6b7280;
+    font-family: 'Inter', sans-serif;
+}
+
+.route-price-wrapper {
+    text-align: right;
+    margin-right: 12px;
+}
+
+.route-price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.route-price-label {
+    font-size: 11px;
+    color: #6b7280;
+    font-family: 'Inter', sans-serif;
+}
+
+.route-check {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #3b82f6;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.route-check svg {
+    width: 18px;
+    height: 18px;
+    color: white;
+}
+
+.route-input:checked ~ .route-card-inner .route-check {
+    display: flex;
+}
+
+/* ============= Booking Section ============= */
+/* Hidden booking form panel with light blue gradient background */
+.booking-section {
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.booking-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+/* ============= Form Elements ============= */
+/* Common form controls: inputs, labels, grid layout rows */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-icon {
+    width: 18px;
+    height: 18px;
+    color: #3b82f6;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 14px;
+    background: white;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.18s ease, background 0.25s ease;
+    font-family: 'Inter', sans-serif;
+    will-change: transform, box-shadow;
+}
+
+.form-input:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.08);
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
+    transform: translateY(-2px);
+}
+
+.form-input:focus,
+.form-input:focus-visible {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+    background: white;
+    transform: translateY(-2px);
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+.form-input-date,
+.form-input-time {
+    cursor: pointer;
+}
+
+.form-input-date:hover,
+.form-input-time:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.06);
+    background: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .form-input,
+    .form-input:hover,
+    .form-input:focus,
+    .form-input-date:hover,
+    .form-input-time:hover {
+        transition: none;
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* ============= Passenger Counter =============*/
+/* Small counter widget used to select number of passengers */
+.passenger-counter {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.passenger-btn {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: #f3f4f6;
+    color: #1f2937;
+    font-size: 24px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.passenger-btn:hover {
+    background: #e5e7eb;
+    transform: scale(1.05);
+}
+
+.passenger-display {
+    flex: 1;
+    text-align: center;
+}
+
+.passenger-count {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.passenger-label {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+/* ============= Submit Button ============= */
+/* Primary CTA button and disabled/active states */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.25s ease, background 0.35s ease;
+    background: #e5e7eb;
+    color: #374151;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* subtle shimmer effect using a pseudo-element */
+.submit-btn::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -60%;
+    width: 60%;
+    height: 120%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg) translateX(0);
+    transition: transform 0.9s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+}
+
+/* hover/active styles for enabled buttons */
+.submit-btn:not(:disabled):hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(16,24,40,0.12);
+    background: linear-gradient(135deg, #f0f7ff 0%, #dbeafe 100%);
+    color: #374151;
+}
+.submit-btn:not(:disabled):hover::after {
+    transform: skewX(-20deg) translateX(220%);
+}
+
+.submit-btn:not(:disabled):active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(16,24,40,0.08);
+}
+
+/* accessibility and disabled state */
+.submit-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.85;
+    transform: none;
+    box-shadow: none;
+}
+
+/* keyboard focus */
+.submit-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.10);
+}
+
+/* explicit "active" class (e.g., when form is valid) */
+.submit-btn-active {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    box-shadow: 0 8px 28px rgba(59, 130, 246, 0.28);
+}
+.submit-btn-active:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 14px 36px rgba(59, 130, 246, 0.36);
+}
+
+/* ============= Student Info ============= */
+/* Small info card used to show student-related details and features */
+.student-info {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    transform: translateY(0);
+}
+
+/* Smooth hover animation: lift, glow, and slight color tint */
+.student-info:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(59, 130, 246, 0.15);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+/* Title color highlight on hover */
+.student-info:hover .student-info-title {
+    color: #2563eb;
+    transition: color 0.3s ease;
+}
+
+/* Animate feature icons slightly when hovered */
+.student-info:hover .feature-icon {
+    transform: scale(1.2) rotate(10deg);
+    color: #3b82f6;
+    transition: all 0.3s ease;
+}
+
+.student-info-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.student-info-text {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6b7280;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: each feature card moves up slightly when hovered */
+.feature:hover {
+    transform: translateY(-3px);
+}
+
+.feature-icon {
+    width: 18px;
+    height: 18px;
+    color: #10b981;
+    transition: all 0.3s ease;
+}
+
+/* ============= Ticket Styles ============= */
+/* Ticket card visuals: header, body, QR area and details */
+.ticket-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.ticket {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: ticketFadeIn 0.6s ease forwards;
+}
+
+@keyframes ticketFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ticket-header {
+    padding: 30px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    background-size: 200% 200%;
+    transition: 
+        background-position 1s ease,
+        transform 0.5s cubic-bezier(0.25, 1, 0.3, 1),
+        box-shadow 0.5s ease,
+        filter 0.5s ease;
+}
+
+/* Hover: gradient slides, lift & glow */
+.ticket:hover .ticket-header {
+    background-position: 100% 0%;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    filter: brightness(1.05);
+}
+
+/* Add a subtle light sweep animation on hover */
+.ticket-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.ticket:hover .ticket-header::before {
+    opacity: 1;
+    animation: lightSweep 1.3s ease forwards;
+}
+
+@keyframes lightSweep {
+    0% {
+        left: -75%;
+    }
+    100% {
+        left: 125%;
+    }
+}
+
+/* Keep your gradient themes */
+.ticket-header-blue {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.ticket-header-pink {
+    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.ticket-header-orange {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.ticket-header-green {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+/* Decorative circles keep depth motion */
+.ticket-decorative-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.6s ease-in-out;
+}
+
+.ticket-circle-1 {
+    width: 120px;
+    height: 120px;
+    top: -40px;
+    right: -40px;
+}
+
+.ticket-circle-2 {
+    width: 80px;
+    height: 80px;
+    bottom: -30px;
+    left: -30px;
+}
+
+.ticket:hover .ticket-circle-1 {
+    transform: translate(10px, -10px) scale(1.15);
+}
+
+.ticket:hover .ticket-circle-2 {
+    transform: translate(-10px, 10px) scale(1.1);
+}
+
+
+.ticket-header-content {
+    position: relative;
+    z-index: 1;
+}
+
+.ticket-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.ticket-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ticket-brand-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.ticket-code-box {
+    text-align: right;
+}
+
+.ticket-code-label {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.ticket-code {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.ticket-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.ticket-subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.ticket-location-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 6px 16px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ============= QR Code Section ============= */
+/* Small boxed area to display QR code or placeholder */
+.ticket-qr-section {
+    background: #f9fafb;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.ticket-qr-box {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 16px;
+    border: 4px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: 
+        transform 0.4s cubic-bezier(0.25, 1, 0.3, 1),
+        box-shadow 0.4s cubic-bezier(0.25, 1, 0.3, 1),
+        border-color 0.4s ease,
+        background 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elegant hover effect */
+.ticket-qr-box:hover {
+    transform: translateY(-6px) scale(1.03);
+    border-color: #3b82f6;
+    box-shadow: 
+        0 12px 30px rgba(59, 130, 246, 0.15),
+        inset 0 2px 8px rgba(59, 130, 246, 0.1);
+    background: radial-gradient(circle at center, #ffffff 60%, #f0f7ff 100%);
+}
+
+/* Add a subtle glowing ring animation */
+.ticket-qr-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: radial-gradient(circle at center, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0) 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.ticket-qr-box:hover::before {
+    opacity: 1;
+    animation: qrGlow 1.8s ease-in-out infinite alternate;
+}
+
+/* Gentle glow pulse */
+@keyframes qrGlow {
+    from {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+/* Keep QR icon stylish and responsive to hover */
+.ticket-qr-icon {
+    width: 120px;
+    height: 120px;
+    color: #d1d5db;
+    margin-bottom: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.ticket-qr-box:hover .ticket-qr-icon {
+    color: #3b82f6;
+    transform: scale(1.05);
+}
+
+/* QR code text */
+.ticket-qr-code {
+    font-size: 12px;
+    font-family: monospace;
+    color: #9ca3af;
+    transition: color 0.3s ease;
+}
+
+.ticket-qr-box:hover .ticket-qr-code {
+    color: #3b82f6;
+}
+
+/* ============= Ticket Details ============= */
+/* Details rows inside the ticket body: labels, icons and values */
+.ticket-details {
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    animation: ticketDetailsFadeIn 0.8s ease-out both;
+}
+
+@keyframes ticketDetailsFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+        filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Slight gradient line animation at the top for aesthetic */
+.ticket-details::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b, #ec4899, #3b82f6);
+    background-size: 300% 100%;
+    animation: gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.ticket-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    transition: all 0.35s ease;
+    background: rgba(249, 250, 251, 0.6);
+}
+
+/* Elegant hover: slight lift and inner glow */
+.ticket-detail-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.ticket-detail-border {
+    padding-bottom: 18px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+/* Gradient-based icon containers with glow hover */
+.ticket-detail-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ticket-detail-item:hover .ticket-detail-icon-wrapper {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Color themes with soft gradients */
+.ticket-icon-blue {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+}
+
+.ticket-icon-pink {
+    background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+}
+
+.ticket-icon-orange {
+    background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+}
+
+.ticket-icon-green {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+}
+
+.ticket-detail-icon {
+    width: 24px;
+    height: 24px;
+    color: #1f2937;
+    transition: color 0.35s ease;
+}
+
+.ticket-detail-item:hover .ticket-detail-icon {
+    color: #111827;
+}
+
+.ticket-small-icon {
+    width: 20px;
+    height: 20px;
+    color: #9ca3af;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.ticket-detail-content {
+    flex: 1;
+}
+
+.ticket-detail-label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.ticket-detail-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+.ticket-detail-item:hover .ticket-detail-label {
+    color: #4b5563;
+}
+
+.ticket-detail-item:hover .ticket-detail-value {
+    color: #111827;
+}
+
+.ticket-arrow {
+    width: 16px;
+    height: 16px;
+    color: #9ca3af;
+    transition: transform 0.3s ease;
+}
+
+.ticket-detail-item:hover .ticket-arrow {
+    transform: translateX(4px);
+}
+
+.ticket-detail-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+/* Notice box styling */
+.ticket-notice {
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 13px;
+    color: #92400e;
+    margin-top: 20px;
+    transition: all 0.4s ease;
+}
+
+.ticket-notice:hover {
+    background: #fff7d6;
+    box-shadow: 0 3px 12px rgba(253, 230, 138, 0.4);
+}
+
+/* ============= Ticket Footer ============= */
+/* Actions at the bottom of the ticket card */
+.ticket-footer {
+    padding: 0 25px 25px;
+}
+
+.ticket-new-booking-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    text-align: center;
+    color: #1f2937;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease, transform 0.3s ease-in-out;
+}
+
+.ticket-new-booking-btn:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    transform: translateY(-3px) scale(1.03);
+}
+
+.ticket-new-booking-btn:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.ticket-hint {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.ticket-footer-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* ============= Admin Dashboard Styles ============= */
+/* Admin dashboard layout, header, stats and table styling */
+.admin-container {
+    max-width: 1420px;
+    margin: 0 auto;
+    padding: 20px;
+
+    /* Animation setup */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Keyframes for elegant fade-in + lift */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(4px);
+    }
+    60% {
+        opacity: 0.7;
+        transform: translateY(8px);
+        filter: blur(1px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Admin Header */
+.admin-header {
+    background: linear-gradient(135deg, #0077ff 0%, #00b8ff 100%);
+    background-size: 200% 200%;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    box-shadow: 0 6px 18px rgba(26, 115, 232, 0.25);
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+
+    /* Smooth animation and entrance */
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInDown 0.8s ease-out forwards;
+
+    /* Subtle gradient shimmer animation */
+    transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+/* Slight motion and glow when hovering */
+.admin-header:hover {
+    box-shadow: 0 10px 25px rgba(26, 115, 232, 0.35);
+    transform: translateY(-3px);
+}
+
+/* Animated gradient background loop */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Apply gradient motion after fade-in */
+.admin-header {
+    animation: fadeInDown 0.8s ease-out forwards, gradientFlow 6s ease-in-out infinite;
+}
+
+/* Elegant fade from top animation */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+        filter: blur(3px);
+    }
+    60% {
+        opacity: 0.8;
+        transform: translateY(-5px);
+        filter: blur(1px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Admin Title */
+.admin-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+/* Accent underline effect for the title */
+.admin-title::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+/* Expand underline on hover */
+.admin-title:hover::after {
+    width: 100%;
+}
+
+/* Admin Header Actions (Right side buttons) */
+.admin-header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Shared Button Base */
+.admin-back-btn,
+.admin-logout-btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Light sheen animation overlay */
+.admin-back-btn::before,
+.admin-logout-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+}
+
+/* Hover sheen effect */
+.admin-back-btn:hover::before,
+.admin-logout-btn:hover::before {
+    left: 125%;
+}
+
+/* Back Button Style */
+.admin-back-btn {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+}
+
+.admin-back-btn:hover {
+    background: linear-gradient(135deg, #5ca4f2, #3d82c2);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+}
+
+.admin-back-btn:active {
+    transform: scale(0.97);
+}
+
+/* Logout Button Style */
+.admin-logout-btn {
+    background: linear-gradient(135deg, #e63946, #d62828);
+}
+
+.admin-logout-btn:hover {
+    background: linear-gradient(135deg, #f04d4d, #d22e2e);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.35);
+}
+
+.admin-logout-btn:active {
+    transform: scale(0.97);
+}
+
+/* Optional: SVG icons inside buttons */
+.admin-back-btn svg,
+.admin-logout-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: #fff;
+    transition: transform 0.25s ease;
+}
+
+/* Directional icon motion */
+.admin-back-btn:hover svg {
+    transform: translateX(-3px);
+}
+
+.admin-logout-btn:hover svg {
+    transform: translateX(3px);
+}
+
+
+/* ===== Responsive Adjustments ===== */
+/* Responsive tweaks for admin header and actions */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+    }
+
+    .admin-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .admin-header-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .admin-back-btn,
+    .admin-logout-btn {
+        flex: 1;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-header-actions {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .admin-back-btn,
+    .admin-logout-btn {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .admin-title {
+        font-size: 1.3rem;
+    }
+}
+
+.admin-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+/* Shared Card Base */
+.stat-card {
+    flex: 1;
+    min-width: 180px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardFadeIn 0.8s ease forwards;
+}
+
+/* Elegant fade-in animation */
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+        filter: blur(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Hover: lift up and glow */
+.stat-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Subtle animated background highlight */
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.8s ease;
+    transform: rotate(0deg);
+    z-index: 0;
+}
+
+.stat-card:hover::before {
+    opacity: 1;
+    transform: rotate(12deg);
+}
+
+/* Content sits above background */
+.stat-number, .stat-label {
+    position: relative;
+    z-index: 1;
+}
+
+/* Text styling */
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.stat-card:hover .stat-number {
+    transform: scale(1.08);
+}
+
+/* Color Variants (each with its own glow tone) */
+.stat-card.total {
+    border-top: 4px solid #4A90E2;
+}
+
+.stat-card.total:hover::before {
+    background: radial-gradient(circle at top left, rgba(74,144,226,0.15), transparent 60%);
+}
+
+.stat-card.confirmed {
+    border-top: 4px solid #28a745;
+}
+
+.stat-card.confirmed:hover::before {
+    background: radial-gradient(circle at top left, rgba(40,167,69,0.15), transparent 60%);
+}
+
+.stat-card.unconfirmed {
+    border-top: 4px solid #fb930a;
+}
+
+.stat-card.unconfirmed:hover::before {
+    background: radial-gradient(circle at top left, rgba(220,53,69,0.15), transparent 60%);
+}
+
+/* Numbers retain their original color theme */
+.stat-card.total .stat-number {
+    color: #4A90E2;
+}
+
+.stat-card.confirmed .stat-number {
+    color: #28a745;
+}
+
+.stat-card.unconfirmed .stat-number {
+    color: #dd6a0b;
+}
+
+/* Auto-Unconfirm Button (Elegant Gradient Style) */
+#autoUnconfirmBtn {
+    background: linear-gradient(135deg, #4A90E2, #357ABD);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInBtn 0.6s ease forwards;
+}
+
+/* Fade-in animation for elegance */
+@keyframes fadeInBtn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+        filter: blur(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Subtle animated light reflection */
+#autoUnconfirmBtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0)
+    );
+    transition: all 0.8s ease;
+}
+
+/* Shine effect when hovering */
+#autoUnconfirmBtn:hover::before {
+    left: 120%;
+}
+
+/* Hover: lift, glow, brighten */
+#autoUnconfirmBtn:hover {
+    background: linear-gradient(135deg, #5aa3f3, #3e7fc7);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(74, 144, 226, 0.3);
+}
+
+/* Active: subtle press */
+#autoUnconfirmBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Bookings Table - Modern Dashboard Look */
+.bookings-table-wrapper {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInTable 0.6s ease forwards;
+}
+
+/* Smooth fade-in entrance */
+@keyframes fadeInTable {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+        filter: blur(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Sticky Header for large datasets */
+.bookings-table thead {
+    background: linear-gradient(135deg, #f9fafb, #eef2ff);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.bookings-table th {
+    padding: 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-bottom: 2px solid #e5e7eb;
+    transition: background 0.3s ease;
+}
+
+/* Row styling */
+.bookings-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    color: #1f2937;
+    transition: all 0.25s ease;
+}
+
+/* Subtle hover effect on rows */
+.bookings-table tbody tr {
+    transition: all 0.25s ease;
+}
+
+.bookings-table tbody tr:hover {
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    transform: scale(1.005);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Badges & Status Styles */
+.booking-code-badge {
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: monospace;
+    transition: all 0.3s ease;
+}
+
+.booking-code-badge:hover {
+    background: #bfdbfe;
+    transform: scale(1.05);
+}
+
+/* Route badges */
+.route-badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.route-badge:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Variants */
+.route-badge-blue {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.route-badge-pink {
+    background: #fce7f3;
+    color: #9f1239;
+}
+
+.route-badge-orange {
+    background: #fed7aa;
+    color: #92400e;
+}
+
+.route-badge-green {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+/* Status badges */
+.status-cell {
+    display: flex;
+    align-items: center;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.status-badge:hover {
+    transform: scale(1.05);
+}
+
+/* Color-coded statuses */
+.status-confirmed {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-cancelled {
+    background: #e0e7ff; /* light indigo */
+    color: #842029;     /* Deep red text */
+    border: 1px solid #f5c2c7;
+}
+
+
+.status-unconfirmed {
+    background: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Buttons inside table */
+.confirm-btn {
+    background: linear-gradient(135deg, #4CAF50, #2e8b57);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background: linear-gradient(135deg, #45a049, #3b944e);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(72, 187, 120, 0.25);
+}
+
+/* Delete Button — soft danger tone */
+.delete-btn {
+    background: #dc3545; /* Bootstrap-inspired danger red */
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.delete-btn:hover {
+    background: #bb2d3b;
+    box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
+    transform: translateY(-1px);
+}
+
+.delete-btn:active {
+    background: #a52834;
+    transform: scale(0.98);
+}
+
+/* Container for buttons */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* Empty state */
+.no-bookings {
+    text-align: center;
+    padding: 80px 20px;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.no-bookings-icon {
+    width: 80px;
+    height: 80px;
+    color: #d1d5db;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.no-bookings-icon:hover {
+    transform: rotate(10deg) scale(1.05);
+}
+
+.no-bookings p {
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 16px;
+}
+
+.pagination {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pagination-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    color: #1e3a8a;
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    border: 1px solid #c7d2fe;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background: linear-gradient(135deg, #c7d2fe, #a5b4fc);
+    transform: translateY(-2px);
+}
+
+.pagination-btn.active {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+}
+
+/* ========================= Admin / Booking Footer ========================= */
+
+.bookings-footer {
+    margin-top: 2.5rem;
+    padding: 1.5rem 1rem;
+    background: linear-gradient(135deg, #0077ff 0%, #00b8ff 100%);
+    color: #f0faff;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 0.4px;
+    border-radius: 20px 20px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer main content container */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Brand area: logo + text */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.footer-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+}
+
+/* Footer links section */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-top: 0.6rem;
+}
+
+.footer-links a {
+    color: #e0f7ff;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.footer-links i {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* Highlight developer name */
+.bookings-footer strong {
+    color: #ffffff;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+.bookings-footer strong:hover {
+    opacity: 0.85;
+}
+
+/* Responsive layout for smaller devices */
+@media (max-width: 768px) {
+    .bookings-footer {
+        font-size: 0.7rem;
+        padding: 1.2rem;
+    }
+
+    .footer-logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .footer-links {
+        gap: 0.8rem;
+    }
+}
+
+.admin-footer {
+    margin-top: 2.5rem;
+    padding: 1.5rem 1rem;
+    background: linear-gradient(135deg, #0077ff 0%, #00b8ff 100%);
+    color: #f0faff;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 0.4px;
+    border-radius: 20px 20px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-footer p {
+    margin: 0.4rem 0;
+}
+
+.admin-footer strong {
+    color: #00eaff;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.admin-footer strong:hover {
+    color: #7ef9ff;
+    text-shadow: 0 0 8px rgba(0, 238, 255, 0.6);
+}
+
+
+/* ========== Admin Login Page ========== */
+/* Login screen layout and controls for admin access */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f2f5 0%, #d9dee3 100%);
+    padding: 20px;
+    font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 390px;
+    overflow: hidden;
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.login-header {
+    position: relative;
+    background: url("../static/images/modern-admin-logo.png") center center / cover no-repeat;
+    height: 160px;
+    border-radius: 18px 18px 0 0;
+    box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.6s ease;
+}
+
+/* Subtle overlay tint */
+.login-header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 18px 18px 0 0;
+    transition: background 0.6s ease;
+}
+
+/* Glow & zoom effect on hover */
+.login-header:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Overlay darkens slightly when hovered */
+.login-header:hover::before {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+/* Light sweep animation */
+.login-header::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    transition: all 0.8s ease;
+}
+
+/* Trigger light sweep */
+.login-header:hover::after {
+    left: 125%;
+    transition: all 0.8s ease;
+}
+
+.header-logo {
+    width: 64px;
+    height: 64px;
+    stroke: white;
+    z-index: 2;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Subtle pulse glow on hover */
+.login-header:hover .header-logo {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+
+
+/* Text container entrance effect */
+.login-text {
+    padding: 25px 25px 10px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+/* Smooth entry animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Title styling with subtle gradient text + hover animation */
+.login-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    transition: all 0.4s ease;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Add a soft glow and slight lift on hover */
+.login-title:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+}
+
+/* Icon animation */
+.login-title svg {
+    width: 26px;
+    height: 26px;
+    stroke: #2563eb;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.login-title:hover svg {
+    transform: rotate(12deg) scale(1.08);
+    filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.5));
+}
+
+/* Subtitle fade and letter glow */
+.login-subtext {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+    opacity: 0.9;
+    transition: all 0.4s ease;
+}
+
+.login-subtext:hover {
+    color: #1e3a8a;
+    letter-spacing: 0.6px;
+    text-shadow: 0 0 6px rgba(37, 99, 235, 0.25);
+}
+
+/* Flash Messages */
+/* Small colored messages for feedback (success, danger, info, warning) */
+.flash { padding: 10px 12px; border-radius: 6px; margin: 15px auto; font-size: 14px; font-weight: 500; text-align: center; width: 85%; animation: fadeIn 0.4s ease; }
+.flash.success { color: #166534; background-color: #dcfce7; }
+.flash.danger { color: #991b1b; background-color: #fee2e2; }
+.flash.warning { color: #92400e; background-color: #fef3c7; }
+.flash.info { color: #1e40af; background-color: #dbeafe; }
+
+/* Form */
+.login-form { padding: 25px 30px 20px; text-align: left; }
+
+/* Input Group */
+.input-group-vertical {
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Slight lift on hover for the whole input group */
+.input-group-vertical:hover {
+    transform: translateY(-2px);
+}
+
+/* Label with icon */
+.input-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #1f2937;
+    transition: color 0.3s ease;
+}
+
+/* Label color + icon glow on hover */
+.input-group-vertical:hover .input-label {
+    color: #2563eb;
+}
+
+.input-label svg {
+    width: 20px;
+    height: 20px;
+    color: #3b82f6;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.input-group-vertical:hover .input-label svg {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 4px rgba(37, 99, 235, 0.4));
+}
+
+/* Input box styling */
+.login-form input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Hover effect */
+.login-form input:hover {
+    border-color: #93c5fd;
+    background-color: #fefeff;
+    box-shadow: 0 0 6px rgba(147, 197, 253, 0.3);
+}
+
+/* Focus effect (interactive glow) */
+.login-form input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.35);
+    outline: none;
+    background-color: #fff;
+    transform: scale(1.01);
+}
+
+/* Optional — subtle floating animation for entire group on focus */
+.input-group-vertical:focus-within {
+    transform: translateY(-3px);
+}
+
+/* Primary Login Button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* Light pulse/glow animation when hovering */
+.login-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-25deg);
+    transition: left 0.5s ease;
+}
+
+/* Hover effects */
+.login-btn:hover::before {
+    left: 125%;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+}
+
+.login-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    transition: transform 0.25s ease;
+}
+
+/* Slight forward motion for icon */
+.login-btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* Active (click) effect */
+.login-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 5px 10px rgba(37, 99, 235, 0.25);
+}
+
+/* ============================================= */
+/* Back Button (Soft Gradient Style) */
+.back-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 12px;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    color: #1e40af;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+/* Gentle sheen effect on hover */
+.back-login-btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-25deg);
+    transition: left 0.5s ease;
+}
+
+.back-login-btn:hover::before {
+    left: 125%;
+}
+
+.back-login-btn:hover {
+    background: linear-gradient(135deg, #bae6fd, #60a5fa);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(147, 197, 253, 0.35);
+}
+
+.back-login-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: #1e40af;
+    transition: transform 0.25s ease;
+}
+
+/* Subtle backward motion for icon */
+.back-login-btn:hover svg {
+    transform: translateX(-4px);
+}
+
+/* Click feedback */
+.back-login-btn:active {
+    transform: scale(0.98);
+}
+
+
+
+/* ========================= Admin Footer + Bottom Note ========================= */
+/* Subtle note under the main content */
+.login-bottom-note {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.85rem;
+    color: #a1a1aa; /* soft neutral gray */
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    line-height: 1.5;
+}
+
+/* Main footer at the very bottom */
+.login-footer {
+    text-align: center;
+    margin-top: 0.8rem;
+    font-size: 0.7rem;
+    color: #dadde2;
+    padding: 0.8rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 15, 25, 0.4);
+    backdrop-filter: blur(5px);
+    letter-spacing: 0.5px;
+}
+
+.login-footer p {
+    margin: 0;
+}
+
+.login-footer strong,
+.login-bottom-note strong {
+    color: #00eaff;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.login-footer strong:hover,
+.login-bottom-note strong:hover {
+    color: #7ef9ff;
+}
+
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile Responsive */
+/* Additional small-screen tweaks for the login UI */
+@media (max-width: 480px) {
+    .login-box { max-width: 92%; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .login-header { height: 130px; }
+    .header-logo { width: 56px; height: 56px; }
+    .login-title { font-size: 1.5rem; }
+    .login-subtext { font-size: 0.8rem; }
+    .login-form input, .login-form button { font-size: 14px; padding: 10px; }
+    .back-login-btn { font-size: 13px; padding: 10px; }
+}
+
+@media (max-width: 360px) {
+    .login-title { font-size: 1.3rem; }
+    .login-subtext { font-size: 0.75rem; }
+    .login-form input { padding: 8px; font-size: 13px; }
+}
+
+/* ============= Responsive Design ============= */
+/* General responsive adjustments for main layout and components */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 36px;
+    }
+
+    .badge {
+        font-size: 9px;
+        padding: 6px 14px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .route-card-inner {
+        flex-wrap: wrap;
+    }
+
+    .route-price-wrapper {
+        margin-right: 0;
+        margin-top: 10px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .ticket-detail-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .admin-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .bookings-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .features {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* ================== File Footer / Notes ================== */
+/* This stylesheet is for CTR_web projects (projects/static/style.css).
+    - Author: project repository
+    - Purpose: styles for booking UI, admin pages and login flows
+    - Keep consistent 4-space indentation for maintainability
+    - Last modified: 2025-10-30
+    Do not remove this comment block — useful for future maintainers.
+*

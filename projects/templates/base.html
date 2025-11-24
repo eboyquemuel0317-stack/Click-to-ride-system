@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO description -->
+    <meta name="description" content="Click to Ride - Fast and safe Calmoda booking service in Calbayog City">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/modern-admin-logo.png') }}">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <!-- Dynamic page title -->
+    <title>{% block title %}Click to Ride - Calbayog City{% endblock %}</title>
+</head>
+<body>
+    <!-- Main content block for individual page content -->
+    {% block content %} {% endblock %}
+    
+    <!-- Optional navigation bar block -->
+    {% block navbar %} {% endblock %}
+    
+    <!-- Optional scripts block for page-specific JS -->
+    {% block scripts %} {% endblock %}
+</body>
+</html>
+
+<!--
+Note:
+- This base template is extended by all other templates.
+- Blocks: title, content, navbar, scripts are customizable in child templates.
+-->
